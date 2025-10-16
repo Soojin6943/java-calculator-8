@@ -16,7 +16,7 @@ public class Parser {
                 separators.append("|").append(input.charAt(2));
                 input = input.substring(5, input.length());
             } else {
-                // todo 잘못된 입력 : 커스텀 문자를 알리는 시작점은 있는데 종료지점이 없음
+                throw new IllegalArgumentException("커스텀 문자의 종료 지점('\\n')이 없습니다.");
             }
         }
 
