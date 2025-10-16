@@ -9,6 +9,11 @@ public class Parser {
         // 기본 구분자
         StringBuilder separators = new StringBuilder(",|:");
 
+        // 빈 문자열 or 공백 처리
+        if (input.isBlank()){
+            return new int[]{0};
+        }
+
         // 커스텀 구분자 판단
         // 문제에서 사이에 위치하는 "문자"라고 했으므로 문자 하나만 들어온다고 가정
         if (input.startsWith("//")) {
