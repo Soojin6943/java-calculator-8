@@ -2,6 +2,7 @@ package calculator;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import static calculator.Calculator.sumCalculator;
 import static calculator.Parser.splitInput;
 
 public class Application {
@@ -12,10 +13,9 @@ public class Application {
 
         // 문자열 나누기
         int[] numbers = splitInput(input);
+        int result = sumCalculator(numbers);
 
-        // 임시 출력 확인용
-        for (int num : numbers){
-            System.out.println(num);
-        }
+        // 결과 출력
+        System.out.println(result);
     }
 }
