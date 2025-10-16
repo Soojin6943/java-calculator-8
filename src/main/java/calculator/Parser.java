@@ -29,7 +29,13 @@ public class Parser {
         int[] numbers = new int[strNumbers.length];
 
         for (int i = 0; i < strNumbers.length; i++) {
-            numbers[i] = Integer.parseInt(strNumbers[i]);
+            int number = Integer.parseInt(strNumbers[i]);
+            if (number > 0){
+                numbers[i] = number;
+            } else {    // 양수가 아닌 수 예외 처리
+                throw new IllegalArgumentException("잘못된 형식의 입력값입니다");
+            }
+
         }
 
         return numbers;
