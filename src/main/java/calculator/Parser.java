@@ -10,7 +10,7 @@ public class Parser {
         StringBuilder separators = new StringBuilder(",|:");
 
         // 빈 문자열 or 공백 처리
-        if (input.isBlank()){
+        if (input.isBlank()) {
             return new int[]{0};
         }
 
@@ -27,19 +27,22 @@ public class Parser {
 
         String[] strNumbers = input.split(separators.toString());
         int[] numbers = new int[strNumbers.length];
+        try {
+            for (int i = 0; i < strNumbers.length; i++) {
+                // 띄어쓰기 예외 처리
+                if (strNumbers[i].startsWith(" ")) {
+                    throw new IllegalArgumentException("띄어쓰기는 잘못된 형식입니다.");
+                }
 
-        for (int i = 0; i < strNumbers.length; i++) {
-            // 띄어쓰기 예외 처리
-            if (strNumbers[i].startsWith(" ")){
-                throw new IllegalArgumentException("띄어쓰기는 잘못된 형식입니다.");
+                int number = Integer.parseInt(strNumbers[i]);
+                if (number > 0) {
+                    numbers[i] = number;
+                } else {    // 양수가 아닌 수 예외 처리
+                    throw new IllegalArgumentException("잘못된 형식의 입력값입니다");
+                }
             }
-
-            int number = Integer.parseInt(strNumbers[i]);
-            if (number > 0){
-                numbers[i] = number;
-            } else {    // 양수가 아닌 수 예외 처리
-                throw new IllegalArgumentException("잘못된 형식의 입력값입니다");
-            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 형식의 입력값입니다.");
         }
 
         return numbers;
