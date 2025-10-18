@@ -21,7 +21,7 @@ public class Parser {
                 separators.append("|").append(input.charAt(2));
                 input = input.substring(5, input.length());
             } else {
-                throw new IllegalArgumentException("커스텀 문자의 종료 지점('\\n')이 없습니다.");
+                throw new IllegalArgumentException("커스텀 문자의 형식이 잘못되었습니다.");
             }
         }
 
