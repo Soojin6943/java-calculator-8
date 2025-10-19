@@ -24,7 +24,14 @@
 - [x]  구분자 외의 입력값(음수, 0 등) → `IllegalArgumentException`
 - [x]  띄어쓰기 포함 시 (ex: "1, 2,3") → `IllegalArgumentException`
 - [x]  잘못된 입력 형식(NumberFormatException 등) → `IllegalArgumentException`
-- [ ]  너무 큰 수 처리 (미구현)
+
+> 문자열 앞부분의 "//"와 "\n" 사이에 위치하는 문자를 커스텀 구분자로 사용 <br>
+-> 커스텀 구분자는 무조건 "//"로 시작 <br>
+-> "문자"라고 했으므로 문자 여러개는 예외 처리 <br>
+-> "\n"이 없으면 예외 처리 <br>
+
+> 구분자와 양수로 구성된 문자열 <br>
+-> "양수"이므로 구분자를 제외한 음수, 0, 띄어쓰기 등 전부 예외처리
 
 ### 추가 처리
 
